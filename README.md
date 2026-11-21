@@ -21,7 +21,7 @@ python oneui_smooth.py
 | **Compare** | Shows before and after side by side. | No |
 | **Undo** | Reverses every change the tool made. | Yes, after you confirm |
 
-## Real results (Galaxy A36, One UI 9)
+## Real results (mid-range Galaxy, One UI 9)
 
 Measured with this tool's own frame test. "Janky" means frames that missed the 8.3 ms deadline of a 120 Hz screen, which you see as stutter.
 
@@ -37,7 +37,7 @@ Both runs were taken with the phone running for about a day, not right after a r
 **What made the difference, in order:**
 1. **An unused accessibility service** (Select to Speak) plus **six unneeded apps with notification access.** Both force extra work in System UI on every screen update and every notification.
 2. **Good Lock plugins that run inside System UI.** QuickStar, NotiStar and friends together cost a lot; LockStar alone measured at zero cost. Keep the ones you love.
-3. **An animated lock screen clock:** 10% → 6.5% janky by switching to a still clock style.
+3. **An animated lock screen clock:** switching to a still clock style cut shade stutter by about a third (10% → 6.5% janky).
 4. **Background bloat** (Facebook preloads, telemetry, unused Samsung services): less memory pressure after hours of use.
 
 What did *not* help much: "Reduce transparency and blur" (small gain), and killing cached apps (makes things worse, see FAQ).
@@ -53,9 +53,19 @@ What did *not* help much: "Reduce transparency and blur" (small gain), and killi
    - Settings → About phone → Software information → tap **Build number** 7 times
    - Settings → Developer options → **USB debugging** on
    - Plug the phone in, tap **Allow** on the prompt, and check that `adb devices` shows it as `device`
-4. **Download this repo** (Code → Download ZIP, or `git clone`) and open a terminal in the folder.
+4. **Get the tool** and open a terminal in its folder:
+   ```
+   git clone https://github.com/Tarnished-Af/oneui-smooth.git
+   cd oneui-smooth
+   ```
+   No git? Use Code → Download ZIP on the GitHub page, unzip it, and open a terminal inside the folder.
 
 ## Usage
+
+```
+git clone https://github.com/Tarnished-Af/oneui-smooth.git
+cd oneui-smooth
+```
 
 The easiest way is the menu:
 ```
@@ -113,7 +123,7 @@ Most of them are *cached*: frozen in memory, using no CPU. Android removes them 
 Same hardware, heavier software. One UI's System UI does more work per frame (blur, layered animations, Now Bar, lock screen effects) and runs more background services. This tool removes the load you don't need. It can't change Samsung's CPU tuning; that needs root.
 
 **Which phones does it work on?**
-It's written for Samsung Galaxy phones on One UI 6–9, and tested on a Galaxy A36 (One UI 9). The measuring part works on any Android phone. Package names can differ by model and region. The tool only offers what's actually installed. If something on your phone should be on the list (or shouldn't), please open an issue.
+It's written for Samsung Galaxy phones on One UI 6–9, and tested on a mid-range Galaxy running One UI 9. The measuring part works on any Android phone. Package names can differ by model and region. The tool only offers what's actually installed. If something on your phone should be on the list (or shouldn't), please open an issue.
 
 **Something broke after the fix.**
 Run `python oneui_smooth.py undo`, or re-enable a single package with `adb shell pm enable <package>`.
