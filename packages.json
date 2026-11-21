@@ -1,0 +1,158 @@
+{
+  "_about": "Curated list for oneui-smooth. Only packages listed here are ever offered for disabling, and only if they are installed on the phone. Every change is 'pm disable-user' (reversible). PRs welcome: add the package, what it does, which feature breaks, and the device/One UI version you verified it on.",
+
+  "questions": {
+    "bixby":         "Do you use Bixby at all (voice assistant, Bixby key, Bixby Vision)?",
+    "bixby_voice":   "Do you wake Bixby by saying \"Hi Bixby\"?",
+    "games":         "Do you play games on this phone and use Game Booster / Gaming Hub?",
+    "smartthings":   "Do you use SmartThings, a Galaxy Watch, Galaxy Buds or a SmartTag?",
+    "samsung_pass":  "Do you use Samsung Pass to save passwords or sign in to apps?",
+    "samsung_cloud": "Do you back up or sync (e.g. Samsung Notes, Gallery) with Samsung Cloud?",
+    "link_windows":  "Do you use Link to Windows / Phone Link with a Windows PC?",
+    "samsung_free":  "Do you use Samsung Free / Samsung News (the panel left of the home screen)?",
+    "kids":          "Does anyone use Samsung Kids on this phone?",
+    "smart_switch":  "Will you move to a new phone with Smart Switch soon?",
+    "ar":            "Do you use AR Emoji, AR Zone or AR Doodle?",
+    "onedrive":      "Do you use Microsoft OneDrive?",
+    "google_meet":   "Do you use Google Meet (video calls)?",
+    "google_tv":     "Do you use the Google TV app?",
+    "ai_suggest":    "Disable Samsung's on-device suggestion engine (app/action suggestions)? Check that app-drawer search still works afterwards."
+  },
+
+  "packages": [
+    {"id": "com.facebook.appmanager", "name": "Facebook App Manager", "tier": "safe",
+     "what": "Preinstalled Facebook updater. Runs even if you never installed Facebook."},
+    {"id": "com.facebook.services", "name": "Facebook Services", "tier": "safe",
+     "what": "Preinstalled Facebook background service."},
+    {"id": "com.facebook.system", "name": "Facebook App Installer", "tier": "safe",
+     "what": "Preinstalled Facebook installer. (The Facebook app still installs and works from the Play Store.)"},
+    {"id": "com.sec.android.diagmonagent", "name": "Samsung diagnostics agent", "tier": "safe",
+     "what": "Uploads diagnostic data to Samsung.",
+     "note": "Persistent on some models (One UI 9): it may keep running even when disabled. Harmless either way."},
+    {"id": "com.samsung.android.knox.analytics.uploader", "name": "Knox analytics uploader", "tier": "safe",
+     "what": "Uploads Knox usage analytics. Knox security itself is not affected."},
+    {"id": "com.samsung.android.dqagent", "name": "Device Quality Agent", "tier": "safe",
+     "what": "Collects device quality / usage statistics for Samsung."},
+    {"id": "com.samsung.android.voc", "name": "Samsung Members", "tier": "safe",
+     "what": "Samsung community + feedback app. You lose the Members app and its error-report tool."},
+    {"id": "com.samsung.android.app.tips", "name": "Samsung Tips", "tier": "safe",
+     "what": "Tips notifications and app."},
+    {"id": "com.samsung.android.ipsgeofence", "name": "Visit In", "tier": "safe",
+     "what": "Location-based promotions."},
+    {"id": "com.netflix.partner.activation", "name": "Netflix preload activation", "tier": "safe",
+     "what": "Partner service for the preinstalled Netflix deal. The Netflix app keeps working."},
+    {"id": "com.mygalaxy", "name": "My Galaxy (India)", "tier": "safe",
+     "what": "Samsung India offers/content app."},
+    {"id": "com.samsung.ecomm.global.in", "name": "Samsung Shop (India)", "tier": "safe",
+     "what": "Samsung store app."},
+    {"id_prefix": "com.glance.", "name": "Glance lock screen", "tier": "safe",
+     "what": "Lock screen content/ads feed (India and some other regions)."},
+
+    {"id": "com.samsung.android.bixby.agent", "name": "Bixby", "tier": "ask", "question": "bixby", "answer_disables": "no",
+     "what": "Bixby voice assistant."},
+    {"id": "com.samsung.android.bixby.wakeup", "name": "Bixby voice wake-up", "tier": "ask", "question": "bixby_voice", "answer_disables": "no",
+     "what": "Always-listening \"Hi Bixby\" detector. Bixby still opens from the side key without it."},
+    {"id": "com.samsung.android.visionintelligence", "name": "Bixby Vision", "tier": "ask", "question": "bixby", "answer_disables": "no",
+     "what": "Bixby Vision camera/object recognition."},
+
+    {"id": "com.samsung.android.game.gamehome", "name": "Gaming Hub", "tier": "ask", "question": "games", "answer_disables": "no",
+     "what": "Game launcher; also runs a background notification process."},
+    {"id": "com.samsung.android.game.gametools", "name": "Game Booster tools", "tier": "ask", "question": "games", "answer_disables": "no",
+     "what": "In-game overlay toolbar."},
+
+    {"id": "com.samsung.android.oneconnect", "name": "SmartThings", "tier": "ask", "question": "smartthings", "answer_disables": "no",
+     "what": "SmartThings, also used to set up Galaxy Watch/Buds/SmartTag."},
+    {"id": "com.samsung.android.app.watchmanagerstub", "name": "Galaxy Wearable stub", "tier": "ask", "question": "smartthings", "answer_disables": "no",
+     "what": "Installer stub for the Galaxy Wearable app."},
+
+    {"id": "com.samsung.android.samsungpass", "name": "Samsung Pass", "tier": "ask", "question": "samsung_pass", "answer_disables": "no",
+     "what": "Samsung's password manager / biometric sign-in.",
+     "check_after": "If you use Samsung Wallet, open it and make sure payments still load."},
+    {"id": "com.samsung.android.samsungpassautofill", "name": "Samsung Pass autofill", "tier": "ask", "question": "samsung_pass", "answer_disables": "no",
+     "what": "Autofill service for Samsung Pass."},
+
+    {"id": "com.samsung.android.scloud", "name": "Samsung Cloud", "tier": "ask", "question": "samsung_cloud", "answer_disables": "no",
+     "what": "Samsung backup/sync. Samsung Notes stops syncing to the cloud (notes stay on the phone)."},
+
+    {"id": "com.microsoft.appmanager", "name": "Link to Windows", "tier": "ask", "question": "link_windows", "answer_disables": "no",
+     "what": "Phone Link companion. Keeps running (and reading notifications) even when switched off in Settings."},
+
+    {"id": "com.samsung.android.app.spage", "name": "Samsung Free / Samsung News", "tier": "ask", "question": "samsung_free", "answer_disables": "no",
+     "what": "Content panel left of the home screen."},
+
+    {"id": "com.samsung.android.kidsinstaller", "name": "Samsung Kids", "tier": "ask", "question": "kids", "answer_disables": "no",
+     "what": "Samsung Kids mode."},
+
+    {"id": "com.sec.android.easyMover.Agent", "name": "Smart Switch agent", "tier": "ask", "question": "smart_switch", "answer_disables": "no",
+     "what": "Smart Switch background agent. Re-enable it before you transfer to a new phone."},
+
+    {"id": "com.samsung.android.aremoji", "name": "AR Emoji", "tier": "ask", "question": "ar", "answer_disables": "no", "what": "AR Emoji camera."},
+    {"id": "com.samsung.android.aremojieditor", "name": "AR Emoji Editor", "tier": "ask", "question": "ar", "answer_disables": "no", "what": "AR Emoji editor."},
+    {"id": "com.samsung.android.arzone", "name": "AR Zone", "tier": "ask", "question": "ar", "answer_disables": "no", "what": "AR Zone app."},
+    {"id": "com.samsung.android.ardrawing", "name": "AR Doodle", "tier": "ask", "question": "ar", "answer_disables": "no", "what": "AR Doodle."},
+    {"id": "com.sec.android.mimage.avatarstickers", "name": "AR Emoji stickers", "tier": "ask", "question": "ar", "answer_disables": "no", "what": "AR Emoji sticker pack."},
+
+    {"id": "com.microsoft.skydrive", "name": "OneDrive", "tier": "ask", "question": "onedrive", "answer_disables": "no", "what": "Preinstalled OneDrive."},
+    {"id": "com.google.android.apps.tachyon", "name": "Google Meet", "tier": "ask", "question": "google_meet", "answer_disables": "no", "what": "Preinstalled Google Meet (formerly Duo)."},
+    {"id": "com.google.android.videos", "name": "Google TV", "tier": "ask", "question": "google_tv", "answer_disables": "no", "what": "Preinstalled Google TV app."},
+
+    {"id": "com.samsung.android.smartsuggestions", "name": "Smart Suggestions", "tier": "test", "question": "ai_suggest", "answer_disables": "yes",
+     "what": "On-device suggestion engine (app/action suggestions). Uses 150-340 MB on One UI 9.",
+     "check_after": "Open the app drawer and search for an app. If search breaks, run undo."},
+    {"id": "com.samsung.android.rubin.app", "name": "Customization Service", "tier": "test", "question": "ai_suggest", "answer_disables": "yes",
+     "what": "Learns your usage patterns to feed suggestions."}
+  ],
+
+  "goodlock_systemui_plugins": [
+    {"id": "com.samsung.systemui.lockstar", "name": "LockStar", "note": "Measured alone on a Galaxy A36: no measurable cost."},
+    {"id": "com.samsung.android.qstuner", "name": "QuickStar", "note": "Runs inside System UI (quick settings)."},
+    {"id": "com.samsung.systemui.notilus", "name": "NotiStar", "note": "Runs inside System UI and reads every notification."}
+  ],
+  "goodlock_background_modules": [
+    {"id": "com.samsung.android.displayassistant", "name": "Display Assistant", "note": "Runs in the background and reads every notification."},
+    {"id": "com.samsung.android.app.goodcatch", "name": "GoodCatch / NiceCatch", "note": "Watches notifications/system events in the background."}
+  ],
+
+  "listener_labels": {
+    "com.sec.android.app.launcher": "Samsung home screen (app icon badges) - keep",
+    "com.google.android.projection.gearhead": "Android Auto",
+    "com.microsoft.appmanager": "Link to Windows",
+    "com.samsung.android.smartmirroring": "Smart View / screen mirroring",
+    "com.samsung.android.galaxycontinuity": "Continue apps on other devices",
+    "com.samsung.systemui.notilus": "NotiStar (Good Lock)",
+    "com.samsung.android.displayassistant": "Display Assistant (Good Lock)",
+    "com.samsung.android.app.goodcatch": "GoodCatch (Good Lock)"
+  },
+
+  "protected": [
+    "com.android.systemui", "com.android.settings", "com.android.phone", "com.android.vending",
+    "com.google.android.gms", "com.google.android.gsf", "com.google.android.webview",
+    "com.sec.android.app.launcher", "com.samsung.android.honeyboard", "com.samsung.android.dialer",
+    "com.samsung.android.messaging", "com.samsung.android.app.contacts", "com.samsung.android.lool",
+    "com.sec.android.sdhms", "com.sec.imsservice", "com.sec.epdg", "com.samsung.android.fmm",
+    "com.samsung.android.biometrics.app.setting", "com.samsung.android.app.telephonyui",
+    "com.samsung.android.spay", "com.samsung.android.spayfw", "com.samsung.android.mcfds",
+    "com.samsung.android.providers.media", "com.android.providers.media.module",
+    "com.samsung.android.knox.zt.framework", "com.samsung.android.wallpaper.live",
+    "com.google.android.permissioncontroller", "com.google.android.packageinstaller"
+  ],
+
+  "sleep_rules": {
+    "_about": "Matched against package names (substring, case-insensitive). First matching category wins.",
+    "never_sleep": {
+      "why": "Needs to receive messages, payments, OTPs or stay connected in real time.",
+      "match": ["whatsapp", "telegram", "signal", "discord", "slack", "teams", "outlook", "android.gm", "apps.messaging",
+                "messenger", "skype", "zoom", "phonepe", "paisa", "paytm", "bhim", "upi", "sbi", "hdfc", "icici",
+                "axis", "kotak", "bank", "wallet", "spay", "authenticator", "authy", "dashlane", "bitwarden", "1password",
+                "lastpass", "keepass", "tailscale", "vpn", "wireguard", "outline", "watch", "wear", "fit", "buds",
+                "titan", "alarm", "clock", "calendar", "uber", "olacabs", "rapido", "maps"]
+    },
+    "sleeping": {
+      "why": "Used regularly but nothing urgent: can refresh now and then, no need to run all the time.",
+      "match": ["instagram", "facebook", "twitter", "x.android", "snapchat", "reddit", "linkedin", "pinterest",
+                "youtube", "netflix", "primevideo", "hotstar", "spotify", "music", "amazon", "flipkart", "myntra",
+                "swiggy", "zomato", "blinkit", "grofers", "zepto", "bigbasket", "naukri", "news", "chrome", "browser",
+                "sbrowser", "notes", "office", "docs", "drive"]
+    }
+  }
+}
